@@ -2,25 +2,33 @@
 <div class="row clearfix">
 	<% if to_do_item.completed? %>
 		<div class="complete">
-    <%= link_to "done", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch%>
+    <%= link_to complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch do%>
+		<i style= "opacity: 0.4;" class="fa fa-check"></i>
+		<% end %>
   </div>
   <div class="to_do_item">
     <p style= "opacity: 0.4;"><strike><%= to_do_item.content %></strike></p>
   </div>
   <div class="trash">
-    <%= link_to "Delete", to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" }
-    %>
+    <%= link_to to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" } do %>
+		 <i class="fa fa-trash"></i>
+
+      <%end%>
+
   </div>
     <% else %>
     <div class="complete">
-      <%= link_to "done", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+			<%= link_to complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch do%>
+			<i class="fa fa-check"></i>
+			<% end %>
     </div>
     <div class="to_do_item">
       <p><%= to_do_item.content %></p>
     </div>
     <div class="trash">
-      <%= link_to "Delete", to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" }
-      %>
+			<%= link_to to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" } do %>
+			 <i class="fa fa-trash"></i>
+			 <% end %>
     </div>
     <% end %>
 </div>

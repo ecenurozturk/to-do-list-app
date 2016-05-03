@@ -1,14 +1,7 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @to_do_list.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @to_do_list.description %>
-</p>
+ 
+<h2 class="to_do_list_title"><%= @to_do_list.title %></h2>
+<p class="to_do_list_sub_title"><%= @to_do_list.description %></p>
 
 <div id="to_do_items_wrapper">
 	<%= render @to_do_list.to_do_items %>
@@ -17,8 +10,9 @@
 	</div>
 </div>
 
-<%= link_to 'Edit', edit_to_do_list_path(@to_do_list) %> |
-<%= link_to 'Back', to_do_lists_path %>
-<% if true %>
-  <!-- true -->
-<% end %>
+<div class="links">
+	<%= link_to 'Edit', edit_to_do_list_path(@to_do_list) %> |
+	<%= link_to 'Delete', to_do_list_path(@to_do_list), method: :delete, data: { confirm: "Are you sure?" }
+ %> |
+  <%= link_to 'Back', to_do_lists_path %>
+</div>
