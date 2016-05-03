@@ -1,3 +1,26 @@
-<p><%= to_do_item.content %></p>
-<%= link_to "Delete", to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" }
-%>
+
+<div class="row clearfix">
+	<% if to_do_item.completed? %>
+		<div class="complete">
+    <%= link_to "done", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch%>
+  </div>
+  <div class="to_do_item">
+    <p style= "opacity: 0.4;"><strike><%= to_do_item.content %></strike></p>
+  </div>
+  <div class="trash">
+    <%= link_to "Delete", to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" }
+    %>
+  </div>
+    <% else %>
+    <div class="complete">
+      <%= link_to "done", complete_to_do_list_to_do_item_path(@to_do_list, to_do_item.id), method: :patch %>
+    </div>
+    <div class="to_do_item">
+      <p><%= to_do_item.content %></p>
+    </div>
+    <div class="trash">
+      <%= link_to "Delete", to_do_list_to_do_item_path(@to_do_list, to_do_item.id),method: :delete, data: { confirm: "emin misiniz?" }
+      %>
+    </div>
+    <% end %>
+</div>

@@ -11,11 +11,14 @@
 </p>
 
 <div id="to_do_items_wrapper">
-  <%=render @to_do_list.to_do_items %>
-  <div id="form">
-    <%= render "to_do_items/form" %>
-  </div>
+	<%= render @to_do_list.to_do_items %>
+	<div id="form">
+		<%= render "to_do_items/form" %>
+	</div>
 </div>
 
 <%= link_to 'Edit', edit_to_do_list_path(@to_do_list) %> |
 <%= link_to 'Back', to_do_lists_path %>
+<% if true %>
+  <!-- true -->
+<% end %>
